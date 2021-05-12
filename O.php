@@ -5,52 +5,62 @@ class Frete {
 
     private $empresa;
  
-    public  function__construct(string $empresa){
+    public  function__construct(string $empresa)
+    {
         $this -> empresa = $empresa;
     }
     public function calcular()
     {
-if ( $this->empresa == 'Correios'){
+        if ( $this->empresa == 'Correios'){
         
-    $logistica = new Correios;
+        $logistica = new Correios;
     }
 
-}elseif ( $this->empresa =='TotalExpress' ) {
-
-}elseif ($this->empresa == 'DHL') {
-
-}
-else{
-    return false;
-}
-
-}
-
-interface EmpresaDeLogistica {
-
-    public function setPeso();
-    public function setDestino();
-    public function setOrigem();
-    public function setTamanho();
-    public function calcular();
-}
-    class Correios implements EmpresaDeLogistica {
+    }
+        elseif ( $this->empresa =='TotalExpress' ) 
+    {
 
     }
-    class TotalExpress implements EmpresaDeLogistica{
+        elseif ($this->empresa == 'DHL') 
+    {
 
     }
-    class DHL implements EmpresaDeLogistica{
+        else
+    {
+        return false;
+    }
+
+}
+
+    interface EmpresaDeLogistica 
+    {
+
+        public function setPeso();
+        public function setDestino();
+        public function setOrigem();
+        public function setTamanho();
+        public function calcular();
+    }
+    class Correios implements EmpresaDeLogistica
+    {
 
     }
-    class Frete {
-private $empresa;
+    class TotalExpress implements EmpresaDeLogistica
+    {
 
-    public function construct (EmpresaDeLogistica $empresa) 
-        {
+    }
+ class DHL implements EmpresaDeLogistica
+    {
+
+    }
+class Frete {
+        private $empresa;
+
+        public function construct (EmpresaDeLogistica $empresa) 
+    {
             $this->empresa = $empresa;
-        }
-    public function calcular()
+    }
+       public function calcular()
         {
              //Logica com os metodos definidos na interface
         }
