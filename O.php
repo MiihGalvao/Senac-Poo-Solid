@@ -1,5 +1,5 @@
 <?php
-//Exemplo de OCP (Open Close Principle)
+//2º Exemplo de OCP (Open Close Principle)
 
 class Frete {
 
@@ -11,24 +11,27 @@ class Frete {
     }
     public function calcular()
     {
+        //Ferindo OCP
         if ( $this->empresa == 'Correios'){
         
         $logistica = new Correios;
     }
-
-    }
+        //Lógica
+    
         elseif ( $this->empresa =='TotalExpress' ) 
     {
-
+        //Lógica
     }
         elseif ($this->empresa == 'DHL') 
     {
-
+        //Lógica
     }
         else
     {
         return false;
     }
+
+}
 
 }
 
@@ -43,20 +46,22 @@ class Frete {
     }
     class Correios implements EmpresaDeLogistica
     {
-
+        //Lógica
     }
     class TotalExpress implements EmpresaDeLogistica
     {
-
+        //Lógica
     }
  class DHL implements EmpresaDeLogistica
     {
-
+        //Lógica
     }
+
+    //REFATORANDO PARA ATENDERMOS AO OCP.
 class Frete {
         private $empresa;
 
-        public function construct (EmpresaDeLogistica $empresa) 
+        public function__construct (EmpresaDeLogistica $empresa) 
     {
             $this->empresa = $empresa;
     }
@@ -145,7 +150,7 @@ interface OrgaoNegativador
 
         public function__construct(Devedor $devedor)
         {
-            this->devedor = $devedor;
+            $this->devedor = $devedor;
         }
         public function enviar (OrgaoNegativador $orgao)
         {
